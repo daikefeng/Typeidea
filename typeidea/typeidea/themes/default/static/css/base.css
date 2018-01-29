@@ -1,0 +1,97 @@
+body {
+    background-color: #dbe2e9;
+}
+/*顶部栏位*/
+.fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    border-width: 0 0 1px;
+}
+header {
+    height: 50px;
+    background-color: #3d4450;
+    border-color: #080808;
+    line-height: 50px;
+}
+header nav a {
+    color: #fff;
+    padding: 0 1.5rem;
+}
+header nav a:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+}
+header a.logo {
+    font-size: 1.5rem;
+    padding-left: 0;
+}
+header a.logo:hover {
+    background-color: #3d4450;
+}
+.searchfor {
+    margin-top: 5px;
+}
+/*主体部分*/
+.main .left-side .inner,
+.main .right-side .inner {
+    background-color: #fff;
+}
+.main .left-side .inner {
+    padding: 30px 16px;
+}
+.post-element-nav {
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #428bca;
+}
+.post-element-title {
+    border-bottom: 1px solid #ccc;
+}
+.post-element-title a {
+    font-size: 25px;
+    color: #333;
+    text-decoration: none;
+}
+.post-element-desc {
+    padding: 1rem;
+}
+.main {
+    margin-top: 100px;
+}
+.post-element article {
+    margin-top: 10px;
+}
+.main ul {
+    padding-left: 0;
+}
+.power {
+    margin-top: 30px;
+}
+.sidebar li {
+    list-style: none;
+}
+.sidebar a {
+    color: #444;
+}
+.sidebar-title {
+    height: 30px;
+    background-color: #3d4450;
+    border-color: #080808;
+    line-height: 30px;
+    color: #fff;
+    padding: 0 9px;
+}
+.sidebar-content {
+    padding: 9px 12px;
+}
+.sidebar .inner {
+    background-color: #fff;
+    margin-bottom: 1.5rem;
+}
+/*comment*/
+.comment .nickname {
+    font-size: 1.5rem;
+    color: #222;
+}

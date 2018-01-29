@@ -1,0 +1,92 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Typeidea blog - by daikefeng</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+    <body>
+        <header class="fixed-top">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-9">
+                         <nav class="nav">
+                             <a class="logo" href="/">Typeidea</a>
+                             <a class="index" href="/">首页</a>
+                             {% for cate in nav_cates %}
+                                 <a href="{% url 'category' cate.id %}">{{ cate.name }}</a>
+                             {% endfor %}
+                         </nav>
+                     </div>
+                     <div class="col-3 searchfor">
+                         <form action="/" method="get" class="input-group">
+                             <input type="text" name="query" class="form-control" placeholder="search for..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                             <div class="input-group-append">
+                                 <input type="submit" class="btn btn-outline-secondary" type="button" value="搜索">
+                             </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+        </header>
+        <div class="container main">
+            <div class="row">
+                <div class="col-9 left-side">
+                    <div class="inner">
+                        {% block content %}
+                        {% endblock content %}
+                    </div>
+                </div>
+                <div class="col-3 right-side">
+                        {% for side in side_bars %}
+                            <div class="sidebar">
+                                <div class="inner">
+                                    <div class="sidebar-title">{{ side.title }}</div>
+                                    <div class="sidebar-content">
+                                        {% if side.display_type == 1 %}
+                                            {% autoescape off %}
+                                                {{ side.content }}
+                                            {% endautoescape %}
+                                        {% elif side.display_type == 2 %}
+                                            <ul>
+                                                {% for post in recently_posts %}
+                                                    <li><a href="{% url 'detail' post.id %}">{{ post.title }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% elif side.display_type == 3 %}
+                                            <ul>
+                                                {% for post in hot_posts %}
+                                                    <li><a href="{% url 'detail' post.id %}">{{ post.title }}-{{ post.pv }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% elif side.display_type == 4 %}
+                                            <ul>
+                                                {% for comment in recently_comments %}
+                                                    <li>{{ comment.post }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <hr/>
+                <nav class="nav category">
+                    {% for cate in cates %}
+                        <li><a href="{% url 'category' cate.id %}">{{ cate.name }}</a></li>
+                    {% endfor %}
+                </nav>
+            </div>
+            <div class="container power">
+                <span class="text-muted">Power by Typeidea - daikefeng</span>
+            </div>
+        </footer>
