@@ -1,0 +1,2 @@
+# Typeidea
+一个基于Djnago的多用户博客,前端使用了bootstrap美化页面,后台使用了xadmin,可以使用markdown在后台发表文章,配置一套restful接口，输出所有的文章，功能跟web系统提供的类似
